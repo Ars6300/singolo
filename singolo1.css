@@ -63,11 +63,27 @@ header nav ul li:first-child::before{
 }
 #vertical{
     margin-top: 53px;
-    margin-left: 72px;
+    margin-left: 56px;
 }
 #horizontal{
     margin-top: 174px;
-    margin-left: 385px;
+    margin-left: 369px;
+}
+#left, #right{
+    position: relative;
+    top:49.5%;
+    width: 16px;
+    height: 27px;
+    
+}
+#left{
+    float: left;
+    transform: translate(10%, -49.5%);
+}
+#right{
+    float: right;
+    right: 0px;
+    transform: translate(-0%, -49.5%) scaleX(-1);
 }
 
 
@@ -128,7 +144,6 @@ article p{
     color: #666d89;
     font-size: 12px;
     margin-top: 8px;
-    
     line-height: 1.82em;
     text-align: justify;
 }
