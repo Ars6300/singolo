@@ -74,8 +74,13 @@ header nav ul li:first-child::before{
     top:49.5%;
     width: 16px;
     height: 27px;
-    
 }
+#left:hover, #right:hover{
+    cursor: pointer;
+    filter: brightness(0) invert(1);   
+    -webkit-filter: brightness(0) invert(1);
+}
+
 #left{
     float: left;
     transform: translate(10%, -49.5%);
