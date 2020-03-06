@@ -54,6 +54,10 @@ body{
 .inputs .input::placeholder{
     color: #f48c8f;
 }
+.inputs .input:invalid:not(:focus):not(:placeholder-shown){
+    border: 1px solid red;
+    color: red;
+}
 
 #contacts{
     color: #f0d8d9;
@@ -82,6 +86,10 @@ body{
 #contacts .info-grid p{
     margin-top: 0;
     justify-self: left;
+}
+#contacts .info-grid p a{
+    text-decoration: none;
+    color: #f0d8d9;
 }
 .info-grid img{
     filter: invert(88%) sepia(23%) saturate(153%) hue-rotate(308deg) brightness(98%) contrast(92%);
