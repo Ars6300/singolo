@@ -155,6 +155,7 @@ h2{
 }
 article{
     width: 69%;
+    overflow: hidden;
 }
 article h3{
     font-family: 'Lato-Black';
@@ -229,12 +230,16 @@ h2{
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
 }
+.person{
+    overflow: hidden;
+}
 h3{
     font-family: 'Lato-Black';
     font-size: 18px;
     color: #666d89;
     line-height: 2em;
     margin-top: 4px;
+    white-space: nowrap;
 }
 .person-details{
     color: #666d89;
