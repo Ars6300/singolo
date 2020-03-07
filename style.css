@@ -56,6 +56,9 @@ header nav ul li{
     font-size: 12px;
     padding-bottom: 3.15px;
 }
+header nav ul li:first-child{
+    color: #f06c64;
+}
 header nav ul li:hover{
     color: #f06c64;
     cursor: pointer;
