@@ -11,31 +11,43 @@
       <h1 id="logo">SINGOLO</h1>
       <nav>
         <ul>
-          <li>HOME</li>
-          <li>SERVICES</li>
-          <li>PORTFOLIO</li>
-          <li>ABOUT</li>
-          <li>CONTACT</li>
+          <li><a class="active" href="#">HOME</a></li>
+          <li><a href="#toServices">SERVICES</a></li>
+          <li><a href="#toPortfolio">PORTFOLIO</a></li>
+          <li><a href="#toAbout">ABOUT</a></li>
+          <li><a href="#toQuote">CONTACT</a></li>
         </ul>
       </nav>
     </header>
     <main>
       <section id="slider">
         <img src="./assets/chev.svg" alt="left" id="left" />
-        <img
-          src="./assets/iPhone-Vertical.svg"
-          alt="Vertical iPhone"
-          id="vertical"
-        />
-        <img
-          src="assets/iPhone-Horizontal.svg"
-          alt="Horizontal iPhone"
-          id="horizontal"
-        />
+        <div id="slides1">
+          <img
+            src="./assets/iPhone-Vertical.svg"
+            alt="Vertical iPhone"
+            id="vertical"
+          />
+          <div id="vertical-black" class="hidden"></div>
+          <div id="horizontal-black" class="hidden"></div>
+          <img
+            src="./assets/iPhone-Horizontal.svg"
+            alt="Horizontal iPhone"
+            id="horizontal"
+          />
+        </div>
+        <div id="slides2" class="hidden">
+          <img
+            src="./assets/iPhone-Three.svg"
+            alt="3 iPhones"
+            id="threeIphones"
+          />
+        </div>
         <img src="./assets/chev.svg" alt="right" id="right" />
       </section>
 
       <section id="services">
+        <a class="anchor" id="toServices"></a>
         <h2>Our Services</h2>
         <p id="long-text">
           Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum.
@@ -107,6 +119,7 @@
         </div>
       </section>
       <section id="portfolio">
+        <a class="anchor" id="toPortfolio"></a>
         <h2>Portfolio</h2>
         <p class="long-text">
           Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
@@ -114,10 +127,10 @@
         </p>
         <nav>
           <ul>
-            <li>All</li>
-            <li>Web Design</li>
-            <li>Graphic Design</li>
-            <li>Artwork</li>
+            <li><button class="active">All</button></li>
+            <li><button>Web Design</button></li>
+            <li><button>Graphic Design</button></li>
+            <li><button>Artwork</button></li>
           </ul>
         </nav>
         <div class="container">
@@ -136,6 +149,7 @@
         </div>
       </section>
       <section id="about">
+        <a class="anchor" id="toAbout"></a>
         <h2>About Us</h2>
         <p class="long-text">
           Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum.
@@ -189,6 +203,7 @@
         </div>
       </section>
       <section id="quote">
+        <a class="anchor" id="toQuote"></a>
         <h2>Get a Quote</h2>
         <p class="long-text">
           Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum.
@@ -197,7 +212,7 @@
           tortor mauris condimentum nibh.
         </p>
         <div class="inputAndContact">
-          <form class="inputs">
+          <form class="inputs" onsubmit="return submitForm(event)">
             <input
               class="input"
               type="text"
@@ -220,6 +235,16 @@
             <input class="input" type="submit" />
           </form>
 
+          <div id="message-block" class="hidden">
+            <div id="message">
+              <p>Письмо отправлено</p>
+              <p id="topic"></p>
+              <p id="description"></p>
+              <br />
+              <button id="close-btn">Ok</button>
+            </div>
+          </div>
+
           <div id="contacts">
             <h3>Contact Information</h3>
             <p>
@@ -241,13 +266,14 @@
       </section>
     </main>
     <footer>
-        <p>© Copyright 2013</p>
-        <div class="social-media">
-            <button class="facebook-button" type="button"></button>
-            <button class="google-button" type="button"></button>
-            <button class="tweeter-button" type="button"></button>
-            <button class="linked-button" type="button"></button>
-        </div>
+      <p>© Copyright 2013</p>
+      <div class="social-media">
+        <button class="facebook-button" type="button"></button>
+        <button class="google-button" type="button"></button>
+        <button class="tweeter-button" type="button"></button>
+        <button class="linked-button" type="button"></button>
+      </div>
     </footer>
+    <script src="./script.js"></script>
   </body>
 </html>
