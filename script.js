@@ -116,7 +116,6 @@ PORTFOLIO.addEventListener("click", event => {
   CONTAINER.querySelectorAll(".container > img").forEach((el, index) =>
     el.style.order = arr[index]
   );
-  console.log(arr);
   event.target.classList.add("active");
 });
 
