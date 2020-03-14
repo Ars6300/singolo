@@ -146,6 +146,7 @@ function submitForm() {
   DESCRIPTION != ""
     ? (OPISANIE.innerText = `Описание: ${DESCRIPTION}`)
     : (OPISANIE.innerText = "Без описания");
+    return false;
 }
 
 CLOSE_BUTTON.addEventListener("click", () => {
