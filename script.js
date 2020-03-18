@@ -21,13 +21,27 @@ const RIGHT = document.getElementById("right");
 
 const PORTFOLIO = document.querySelector("#portfolio > nav > ul");
 const CONTAINER = document.querySelector("#portfolio > div");
-
+document.addEventListener('scroll', onScroll);
 MAIN.style.marginTop = HEADER.offsetHeight + "px";
 
-MENU.addEventListener("click", event => {
-  MENU.querySelectorAll("li > a").forEach(el => el.classList.remove("active"));
-  event.target.classList.add("active");
-});
+function onScroll(event){
+  const curPos = window.scrollY;
+  const anchors = document.querySelectorAll('main > section');
+
+  anchors.forEach((e) => {
+    //console.log(e.getAttribute('id'));
+    if(e.offsetTop <= curPos+95 && (e.offsetTop + e.offsetHeight) > curPos+95){
+      console.log(Array.prototype.indexOf.call(MAIN.children, e))
+      MENU.querySelectorAll("li > a").forEach(el => el.classList.remove("active"));
+      MENU.querySelectorAll("li > a").item(Array.prototype.indexOf.call(MAIN.children, e)).classList.add("active")
+    }
+  })
+}
+
+//MENU.addEventListener("click", event => {
+  //MENU.querySelectorAll("li > a").forEach(el => el.classList.remove("active"));
+ // event.target.classList.add("active");
+//});
 
 LEFT.addEventListener("click", () => {
   if (document.querySelector("#slides1").classList.contains("hidden")) {
