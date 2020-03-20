@@ -29,6 +29,7 @@ html{
 body{
     width: 1020px;
     margin: 0 auto;
+    position: relative;
 }
 button:active, 
 button:focus,
@@ -47,8 +48,10 @@ header{
     padding: 29.5px 40px;
     position: fixed;
     top: 0;
-    width: 940px;
+    box-sizing: border-box;
+    width: inherit;
     display: flex;
+    
     justify-content: space-between;
     z-index: 1;
 }
@@ -56,8 +59,7 @@ header{
 #logo{
     color: #ffffff;
     font-family: 'Lato-Bold';
-    font-size: 25px;    
-    
+    font-size: 25px;
 }
 #logo::after{
     content: "*";
@@ -106,7 +108,7 @@ a.anchor {
     background-color: #f06c64;
     border-bottom: 6px solid #ea676b;
     padding: 53.5px 40px;
-    width: 940px;
+    width: calc(100% - 80px);
     display: inline-flex;
     justify-content: space-between;
     align-items: center;

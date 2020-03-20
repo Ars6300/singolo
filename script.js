@@ -30,8 +30,7 @@ function onScroll(event){
 
   anchors.forEach((e) => {
     //console.log(e.getAttribute('id'));
-    if(e.offsetTop <= curPos+95 && (e.offsetTop + e.offsetHeight) > curPos+95){
-      console.log(Array.prototype.indexOf.call(MAIN.children, e))
+    if(e.offsetTop <= curPos + HEADER.offsetHeight && (e.offsetTop + e.offsetHeight) > curPos + HEADER.offsetHeight){
       MENU.querySelectorAll("li > a").forEach(el => el.classList.remove("active"));
       MENU.querySelectorAll("li > a").item(Array.prototype.indexOf.call(MAIN.children, e)).classList.add("active")
     }
