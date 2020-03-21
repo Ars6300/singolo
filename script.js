@@ -1,4 +1,5 @@
 const MENU = document.querySelector("body > header > nav > ul");
+const NAVIGATION = document.querySelector("body > header > nav");
 const MAIN = document.querySelector("body > main");
 const HEADER = document.querySelector("body > header");
 const SLIDER = document.getElementById("#slider");
@@ -7,6 +8,7 @@ const SUBMIT = document.querySelector(
 );
 const CLOSE_BUTTON = document.getElementById("close-btn");
 const FORM = document.querySelector("#quote > div > form");
+const BURGER = document.querySelector("#menu");
 const MESSAGE_BLOCK = document.getElementById("message-block");
 const NAME_INPUT = document.querySelector(
   "#quote > div > form > input:nth-child(1)"
@@ -23,6 +25,10 @@ const PORTFOLIO = document.querySelector("#portfolio > nav > ul");
 const CONTAINER = document.querySelector("#portfolio > div");
 document.addEventListener('scroll', onScroll);
 MAIN.style.marginTop = HEADER.offsetHeight + "px";
+HEADER.addEventListener('resize', ()=>{
+  MAIN.style.marginTop = HEADER.offsetHeight + "px";
+})
+
 
 function onScroll(event){
   const curPos = window.scrollY;
@@ -37,10 +43,32 @@ function onScroll(event){
   })
 }
 
-//MENU.addEventListener("click", event => {
-  //MENU.querySelectorAll("li > a").forEach(el => el.classList.remove("active"));
- // event.target.classList.add("active");
-//});
+let rotated = false;
+let opened = false;
+BURGER.addEventListener("click", () => {
+  let deg = rotated ? 0 : 90;
+  BURGER.style.transform = `rotate(${deg}deg)`;
+  if(opened){
+    NAVIGATION.classList.add("m-hidden");
+    document.querySelector("#logo").classList.remove("to-left");
+  }else{
+    NAVIGATION.classList.remove("m-hidden");
+    document.querySelector("#logo").classList.add("to-left");
+  }
+  rotated = !rotated;
+  opened = !opened;
+})
+
+MENU.addEventListener("click", event => {
+  if(opened){
+    NAVIGATION.classList.add("m-hidden");
+    document.querySelector("#logo").classList.remove("to-left");
+  }
+  opened = !opened;
+  let deg = rotated ? 0 : 90;
+  BURGER.style.transform = `rotate(${deg}deg)`;
+  rotated = !rotated;
+});
 
 LEFT.addEventListener("click", () => {
   if (document.querySelector("#slides1").classList.contains("hidden")) {
@@ -123,11 +151,13 @@ PORTFOLIO.addEventListener("click", event => {
   );
   var arr =[];
   CONTAINER.querySelectorAll(".container > img").forEach(el =>
-    arr.push(getComputedStyle(el).order)
+    //arr.push(getComputedStyle(el).order)
+    arr.push(el.src)
   );
   shuffle(arr);
   CONTAINER.querySelectorAll(".container > img").forEach((el, index) =>
-    el.style.order = arr[index]
+    //el.style.order = arr[index]
+    el.src = arr[index]
   );
   event.target.classList.add("active");
 });
