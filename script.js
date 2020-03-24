@@ -146,6 +146,12 @@ VERTICAL_PHONE.addEventListener("click", () => {
 });
 
 PORTFOLIO.addEventListener("click", event => {
+  const isButton = event.target.nodeName === 'BUTTON';
+  if (!isButton) {
+    return;
+  }
+
+  console.dir(event.target.id);
   PORTFOLIO.querySelectorAll("li > button").forEach(el =>
     el.classList.remove("active")
   );
