@@ -47,6 +47,7 @@ let rotated = false;
 let opened = false;
 BURGER.addEventListener("click", () => {
   let deg = rotated ? 0 : 90;
+  console.log("sdad");
   BURGER.style.transform = `rotate(${deg}deg)`;
   if(opened){
     NAVIGATION.classList.add("m-hidden");
@@ -60,11 +61,16 @@ BURGER.addEventListener("click", () => {
 })
 
 MENU.addEventListener("click", event => {
+  const isButton = event.target.nodeName === 'A';
+  if (!isButton || HEADER.offsetWidth > 767) {
+    return;
+  }
   if(opened){
     NAVIGATION.classList.add("m-hidden");
     document.querySelector("#logo").classList.remove("to-left");
   }
   opened = !opened;
+  console.log(2);
   let deg = rotated ? 0 : 90;
   BURGER.style.transform = `rotate(${deg}deg)`;
   rotated = !rotated;
