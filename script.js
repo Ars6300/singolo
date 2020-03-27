@@ -25,15 +25,15 @@ const PORTFOLIO = document.querySelector("#portfolio > nav > ul");
 const CONTAINER = document.querySelector("#portfolio > div");
 document.addEventListener('scroll', onScroll);
 MAIN.style.marginTop = HEADER.offsetHeight + "px";
-HEADER.addEventListener('resize', ()=>{
+window.addEventListener('resize', (event)=>{
   MAIN.style.marginTop = HEADER.offsetHeight + "px";
+  console.log(HEADER.offsetHeight)
 })
 
 
 function onScroll(event){
   const curPos = window.scrollY;
   const anchors = document.querySelectorAll('main > section');
-
   anchors.forEach((e) => {
     //console.log(e.getAttribute('id'));
     if(e.offsetTop <= curPos + HEADER.offsetHeight && (e.offsetTop + e.offsetHeight) > curPos + HEADER.offsetHeight){
@@ -159,6 +159,9 @@ PORTFOLIO.addEventListener("click", event => {
 
   console.dir(event.target.id);
   PORTFOLIO.querySelectorAll("li > button").forEach(el =>
+    el.classList.remove("active")
+  );
+  CONTAINER.querySelectorAll(".container > img").forEach(el =>
     el.classList.remove("active")
   );
   var arr =[];
